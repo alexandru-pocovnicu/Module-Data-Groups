@@ -12,22 +12,21 @@ function calculateMedian(list) {
   if (list.length === 0) {
     return null;
   }
-  const sortedList = [...list].sort((a, b) => a - b);
-  const filteredList=sortedList.filter((element)=> typeof element==="number")
-  const middleIndex = Math.floor(filteredList.length / 2);
-  const listMiddleIndex = filteredList[middleIndex];
-  const median = filteredList.slice(middleIndex)[0];
+  const filteredList = list.filter((element) => typeof element === "number");
+  const sortedList = filteredList.sort((a, b) => a - b);
 
- 
-  
-if (filteredList.length===0 ){
-  return null
-}
+  const middleIndex = Math.floor(sortedList.length / 2);
 
-  if (filteredList.length % 2 === 0) {
-    return (listMiddleIndex + (listMiddleIndex - 1)) / 2;
+  const median = sortedList.slice(middleIndex)[0];
+
+  if (sortedList.length === 0) {
+    return null;
+  }
+
+  if (sortedList.length % 2 === 0) {
+    return (sortedList[middleIndex] + sortedList[middleIndex - 1]) / 2;
   }
   return median;
 }
-console.log(calculateMedian([1, 6, 9, 12]));
+
 module.exports = calculateMedian;
