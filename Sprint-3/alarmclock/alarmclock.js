@@ -1,7 +1,7 @@
-const timeInput = document.querySelector("#alarmSet"); //store input#alarmSet
-const timeRemaining = document.querySelector("#timeRemaining"); // store h1#timeRemaining
-const setAlarmButton = document.querySelector("#set"); // store button#set
-setAlarmButton.addEventListener("click", setAlarm); // when click on set alarm button call setAlarm function
+const timeInput = document.querySelector("#alarmSet"); 
+const timeRemaining = document.querySelector("#timeRemaining"); 
+const setAlarmButton = document.querySelector("#set"); 
+setAlarmButton.addEventListener("click", setAlarm); 
 
 let currentCountdown;
 function setAlarm() {
