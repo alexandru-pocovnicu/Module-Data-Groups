@@ -21,7 +21,7 @@ const books = [
   },
 ];
 
-function renderBooks() {
+function readingList() {
   const unorderedList = document.querySelector("#reading-list");
   for (const book of books) {
     const newList = document.createElement("li");
@@ -42,4 +42,4 @@ function renderBooks() {
     unorderedList.appendChild(newList);
   }
 }
-renderBooks();
+readingList();
