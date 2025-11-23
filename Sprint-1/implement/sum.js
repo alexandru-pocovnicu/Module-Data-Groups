@@ -2,9 +2,6 @@ function sum(elements) {
   if (elements.length === 0) {
     return 0;
   }
-  if (elements.length === 1) {
-    return elements[0];
-  }
 
   const filteredElements = elements.filter(
     (element) => typeof element === "number"
@@ -20,4 +17,3 @@ function sum(elements) {
   return addElements;
 }
 module.exports = sum;
-
