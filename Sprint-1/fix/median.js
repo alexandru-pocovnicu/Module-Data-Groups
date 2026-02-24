@@ -6,15 +6,29 @@
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
 function calculateMedian(list) {
-  let listCopy=[...list]
-  let filteredList=listCopy.filter(x=>+x)
-  let sortedList=filteredList.sort((a,b)=>a-b)
+  if (!Array.isArray(list)) {
+    return null;
+  }
+
+  let listCopy = [...list];
+  let filteredList = listCopy.filter((x) => typeof x === "number");
+  let sortedList = filteredList.sort((a, b) => a - b);
   const middleIndex = Math.floor(sortedList.length / 2);
-  const median = list.splice(middleIndex, 1)[0];
-  return middleIndex
+
+  if (filteredList.length === 0) {
+    return null;
+  }
+
+  let median = 0;
+  if (sortedList.length % 2 === 0) {
+    median = (sortedList[middleIndex - 1] + sortedList[middleIndex]) / 2;
+  } else {
+    median = sortedList[middleIndex];
+  }
+
+  return median;
 }
 
-console.log(calculateMedian([5,1,"g,",3]));
 
 
 module.exports = calculateMedian;
