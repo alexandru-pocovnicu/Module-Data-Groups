@@ -76,3 +76,9 @@ test("given an array with non-number values, returns the max number",()=>{
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("given an array with only non-numbers, returns -Infinity",()=>{
+    const array = [false, "k", "-7.6", null,{},NaN];
+    const currentOutput = findMax(array);
+    const targetOutput = -Infinity;
+    expect(currentOutput).toEqual(targetOutput);
+})

@@ -1,7 +1,7 @@
 function findMax(elements) {
 
 
-const filteredElements=elements.filter(x=>typeof x==="number")
+const filteredElements=elements.filter(x=>typeof x==="number" && !Number.isNaN(x))
 
 
   const sortedElements = filteredElements.sort((a, b) => a - b);
