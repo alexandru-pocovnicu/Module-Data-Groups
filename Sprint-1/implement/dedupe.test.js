@@ -26,6 +26,12 @@ test("given an empty array, it returns an empty array",()=>{
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
+test("given an array with no duplicates, it returns a copy of the original  array", () => {
+  const array = [1,"d",6];
+  const currentOutput = dedupe(array);
+  const targetOutput = [1,"d",6];
+  expect(currentOutput).toEqual(targetOutput);
+});
 
 // Given an array with strings or numbers
 // When passed to the dedupe function
