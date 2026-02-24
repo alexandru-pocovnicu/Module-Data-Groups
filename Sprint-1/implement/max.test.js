@@ -36,11 +36,17 @@ test("given an  array with one number, returns -that number", () => {
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
-
+test("given an array with both positive and negative numbers, returns -the largest number overall ",()=>{
+     const array = [3,-5,7,-9];
+     const currentOutput = findMax(array);
+     const targetOutput = 7;
+     expect(currentOutput).toEqual(targetOutput);
+})
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+
 
 // Given an array with decimal numbers
 // When passed to the max function
