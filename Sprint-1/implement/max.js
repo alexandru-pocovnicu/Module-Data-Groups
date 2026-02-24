@@ -1,16 +1,14 @@
 function findMax(elements) {
-  if (elements.length === 0) {
-    return Infinity;
-  }
 
-  if (elements.length === 1) {
-    return elements[0];
-  }
-  const sortedElements = elements.sort((a, b) => a - b);
 
-  return sortedElements.reduce((a,b)=>Math.max(a,b))
+const filteredElements=elements.filter(x=>typeof x==="number")
+
+
+  const sortedElements = filteredElements.sort((a, b) => a - b);
+
+  return sortedElements.reduce((a,b)=>Math.max(a,b),-Infinity)
 }
 
-console.log(findMax([-5, -1, -7, -3]));
+console.log(findMax([]));
 
 module.exports = findMax;

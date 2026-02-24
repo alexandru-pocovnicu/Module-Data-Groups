@@ -19,7 +19,7 @@ const findMax = require("./max.js");
 test("given an empty array, returns -Infinity",()=>{
     const array=[]
     const currentOutput=findMax(array)
-    const targetOutput=Infinity
+    const targetOutput=-Infinity
     expect(currentOutput).toEqual(targetOutput)
 });
 
@@ -66,7 +66,12 @@ test("given an array with decimal numbers, return the largest decimal",()=>{
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
-
+test("given an array with non-number values, returns the max number",()=>{
+    const array = [-5, -1,"k", -7.6,null, -3];
+    const currentOutput = findMax(array);
+    const targetOutput = -1;
+    expect(currentOutput).toEqual(targetOutput);
+})
 
 // Given an array with only non-number values
 // When passed to the max function
