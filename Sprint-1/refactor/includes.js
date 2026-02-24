@@ -1,8 +1,7 @@
-// Refactor the implementation of includes to use a for...of loop 
+// Refactor the implementation of includes to use a for...of loop
 
 function includes(list, target) {
   for (let element of list) {
-    
     if (element === target) {
       return true;
     }
