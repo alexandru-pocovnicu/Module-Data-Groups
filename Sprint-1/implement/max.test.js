@@ -26,10 +26,17 @@ test("given an empty array, returns -Infinity",()=>{
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("given an  array with one number, returns -that number", () => {
+  const array = [3];
+  const currentOutput = findMax(array);
+  const targetOutput = 3;
+  expect(currentOutput).toEqual(targetOutput);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+
 
 // Given an array with just negative numbers
 // When passed to the max function
