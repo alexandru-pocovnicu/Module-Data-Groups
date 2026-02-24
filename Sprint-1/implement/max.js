@@ -11,6 +11,6 @@ function findMax(elements) {
   return sortedElements.reduce((a,b)=>Math.max(a,b))
 }
 
-console.log(findMax([3, -5, 7, -9]));
+console.log(findMax([-5, -1, -7, -3]));
 
 module.exports = findMax;
