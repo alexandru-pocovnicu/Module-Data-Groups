@@ -20,3 +20,7 @@ test("parses multiple querystring divided by &", () => {
 test("it returns the value as an empty string if the querystring has no =",()=>{
   expect(parseQueryString("day")).toEqual({day:""})
 })
+
+test("it returns the key as an empty string if the querystring has no nothing before =", () => {
+  expect(parseQueryString("=day")).toEqual({"":"day" });
+});
