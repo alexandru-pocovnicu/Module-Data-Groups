@@ -37,6 +37,10 @@ test(
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
+test("when contains is called with an object and a non-existing property name as arguments,it returns false ", () => {
+  expect(contains({ a: 9,color:"pink",day:"Sunday" }, "John")).toEqual(false);
+});
+
 
 // Given invalid parameters like an array
 // When passed to contains
