@@ -45,3 +45,7 @@ test("when contains is called with an object and a non-existing property name as
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+test("when contains is called with the string 'parameter' and propertyName='a' as arguments it throws an error", () => {
+  expect(() => contains("parameter", "a")).toThrow("Invalid object");
+});
+
