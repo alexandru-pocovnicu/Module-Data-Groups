@@ -9,4 +9,14 @@ test("parses querystring values containing =", () => {
   expect(parseQueryString("equation=x=y+1")).toEqual({
     "equation": "x=y+1",
   });
-});
+}); 
+
+test("parses multiple querystring divided by &", () => {
+  expect(parseQueryString("equation=x=y+1&color=blue")).toEqual({
+    equation: "x=y+1",color:"blue"
+  });
+}); 
+
+test("it returns the value as an empty string if the querystring has no =",()=>{
+  expect(parseQueryString("day")).toEqual({day:""})
+})
