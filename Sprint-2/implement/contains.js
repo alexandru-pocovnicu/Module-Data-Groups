@@ -10,6 +10,6 @@ function contains(obj, propertyName) {
   }
   return false;
 }
-//console.log(contains({w:0}, [w]));
+
 
 module.exports = contains;
