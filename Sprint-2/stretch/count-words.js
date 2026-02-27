@@ -26,3 +26,15 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+function countWords(string) {
+  const noPunctuation = string.replace(/[.,!?]/g,"");
+  const array = noPunctuation.split(" ");
+  
+  
+  let object = {};
+  array.forEach((word) => {
+    object[word] = (object[word] || 0) + 1;
+  });
+  return array
+}
+console.log(countWords("you, and .me? and you me me"));
