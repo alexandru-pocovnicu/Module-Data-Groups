@@ -1,7 +1,7 @@
 const tally = require("./tally.js");
 
 /**
- * tally array
+ * tally array 
  *
  * In this task, you'll need to implement a function called tally
  * that will take a list of items and count the frequency of each item
@@ -23,12 +23,22 @@ const tally = require("./tally.js");
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+test("when an empty array is passed to tally it returns an empty object",()=>{
+    expect(tally([])).toEqual({})
+});
 
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
+test(
+  "when an array with duplicate items is passed to tally , it returns counts for each unique item",()=>{
+    expect(tally(["t","d",5,"t",5]))
+  }
+);
 
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
+test("when a string is passed to tally it throws error",()=>{
+    expect(()=>tally("asd")).toThrow("Invalid input")
+})
