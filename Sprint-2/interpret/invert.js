@@ -16,7 +16,7 @@ function invert(obj) {
 
   return invertedObj;
 }
-console.log(invert(null));
+console.log(invert({}));
 module.exports=invert
 
 // a) What is the current return value when invert is called with { a : 1 }
