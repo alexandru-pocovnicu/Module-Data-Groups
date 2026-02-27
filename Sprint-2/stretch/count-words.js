@@ -28,13 +28,13 @@
 */
 function countWords(string) {
   const noPunctuation = string.replace(/[.,!?]/g,"");
-  const array = noPunctuation.split(" ");
+  const array = noPunctuation.toLowerCase().split(" ");
   
   
   let object = {};
   array.forEach((word) => {
     object[word] = (object[word] || 0) + 1;
   });
-  return array
+  return object
 }
-console.log(countWords("you, and .me? and you me me"));
+console.log(countWords("You, and .me? and you me me"));
