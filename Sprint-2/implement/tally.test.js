@@ -32,13 +32,13 @@ test("when an empty array is passed to tally it returns an empty object",()=>{
 // Then it should return counts for each unique item
 test(
   "when an array with duplicate items is passed to tally , it returns counts for each unique item",()=>{
-    expect(tally(["t","d",5,"t",5]))
+    expect(tally(["t", "d", 5, "t", 5])).toEqual({ t: 2, d: 1, 5: 2 });
   }
 );
 
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
-test("when a string is passed to tally it throws error",()=>{
-    expect(()=>tally("asd")).toThrow("Invalid input")
-})
+test("when a string is passed to tally it throws error", () => {
+  expect(() => tally("asd")).toThrow("Invalid input");
+});
