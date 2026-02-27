@@ -7,6 +7,7 @@
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
 function invert(obj) {
+  if(typeof obj!=="object" || Array.isArray(obj)|| obj===null)throw new Error("Invalid input");
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
@@ -15,7 +16,8 @@ function invert(obj) {
 
   return invertedObj;
 }
-console.log(invert({a:1,b:2}));
+console.log(invert(null));
+module.exports=invert
 
 // a) What is the current return value when invert is called with { a : 1 }
 //{key=1}
