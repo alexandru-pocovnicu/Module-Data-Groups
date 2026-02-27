@@ -35,6 +35,6 @@ function countWords(string) {
   array.forEach((word) => {
     object[word] = (object[word] || 0) + 1;
   });
-  return object
+  return Object.values(object).sort((a,b)=>b-a)/////?????? stuck on how to order it
 }
 console.log(countWords("You, and .me? and you me me"));
