@@ -510,3 +510,25 @@ button.addEventListener("click", () => {
   const author = document.getElementById("author");
   author.innerText = randomQuote.author;
 });
+
+function chooseQuote(){
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+  const quote = document.getElementById("quote");
+  quote.innerText = randomQuote.quote;
+
+  const author = document.getElementById("author");
+  author.innerText = randomQuote.author;
+}
+const autoGenerate = document.getElementById("auto-play-toggle");
+let interval = null;
+autoGenerate.addEventListener("change",()=>{
+  
+  if(autoGenerate.checked){
+    interval=setInterval(chooseQuote,2000)
+  }else{
+    clearInterval(interval)
+    interval=null
+  }
+})
+
