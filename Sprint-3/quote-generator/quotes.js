@@ -492,26 +492,7 @@ const quotes = [
 
 // call pickFromArray with the quotes array to check you get a random quote
 
-const randomQuote = quotes[Math.floor(Math.random()*quotes.length)];
-
-const quote = document.getElementById("quote");
-quote.innerText = randomQuote.quote;
-
-const author = document.getElementById("author");
-author.innerText = randomQuote.author;
-
-const button = document.getElementById("new-quote");
-button.addEventListener("click", () => {
-  const randomQuote =quotes[Math.floor(Math.random()*quotes.length)];
-
-  const quote = document.getElementById("quote");
-  quote.innerText = randomQuote.quote;
-
-  const author = document.getElementById("author");
-  author.innerText = randomQuote.author;
-});
-
-function chooseQuote(){
+function chooseQuote() {
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
   const quote = document.getElementById("quote");
@@ -520,15 +501,19 @@ function chooseQuote(){
   const author = document.getElementById("author");
   author.innerText = randomQuote.author;
 }
+
+window.addEventListener("load", chooseQuote);
+
+const button = document.getElementById("new-quote");
+button.addEventListener("click", chooseQuote);
+
 const autoGenerate = document.getElementById("auto-play-toggle");
 let interval = null;
-autoGenerate.addEventListener("change",()=>{
-  
-  if(autoGenerate.checked){
-    interval=setInterval(chooseQuote,2000)
-  }else{
-    clearInterval(interval)
-    interval=null
+autoGenerate.addEventListener("change", () => {
+  if (autoGenerate.checked) {
+    interval = setInterval(chooseQuote, 2000);
+  } else {
+    clearInterval(interval);
+    interval = null;
   }
-})
-
+});
