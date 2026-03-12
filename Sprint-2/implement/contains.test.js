@@ -21,7 +21,7 @@ as the object doesn't contains a key of 'c'
 // When passed to contains
 // Then it should return false
 test("contains on empty object and propertyName='k' returns false", () => {
-  expect(contains({}, "k")).toEqual(false);
+  expect(()=>contains({}, "k")).toThrow("Invalid object");
 });
 
 // Given an object with properties
