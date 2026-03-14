@@ -130,3 +130,10 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
+describe("deleteCompleted()",()=>{
+  test("remove all completed tasks",()=>{
+    const todoList=createMockTodos()
+    Todos.deleteCompleted(todoList)
+    expect(todoList).toHaveLength(2)
+  })
+});
