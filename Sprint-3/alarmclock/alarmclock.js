@@ -1,18 +1,30 @@
 function setAlarm() {
- const alarmSetEl=document.getElementById("alarmSet")
- const timeRemainingEl = document.getElementById("timeRemaining");
+  const alarmSetEl = document.getElementById("alarmSet");
+  const timeRemainingEl = document.getElementById("timeRemaining");
+  let totalSeconds = +alarmSetEl.value;
+  let intervalId;
+  function updateCountDown() {
+    let seconds = totalSeconds % 60;
+    let minutes = (totalSeconds - seconds) / 60;
 
-let totalSeconds=alarmSetEl.value
-let seconds=totalSeconds%60
-let minutes=(totalSeconds-seconds)/60
+    let paddedSeconds = seconds.toString().padStart(2, "0");
+    let paddedMinutes = minutes.toString().padStart(2, "0");
+    timeRemainingEl.innerHTML = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`;
+    alarmSetEl.value = null;
 
+    if (totalSeconds === 0) {
+      playAlarm();
+      clearInterval(intervalId);
+      return;
+    }
+    totalSeconds -= 1;
+  }
 
- timeRemainingEl.innerHTML=`Time Remaining: ${alarmSetEl.value}`
-
- console.log(minutes);
- 
-
+  updateCountDown();
+  intervalId = setInterval(updateCountDown, 1000);
 }
+
+
 
 // DO NOT EDIT BELOW HERE
 
