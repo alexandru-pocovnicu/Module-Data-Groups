@@ -493,7 +493,7 @@ const quotes = [
 // call pickFromArray with the quotes array to check you get a random quote
 
 function chooseQuote() {
-  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  const randomQuote = pickFromArray(quotes)
 
   const quote = document.getElementById("quote");
   quote.innerText = randomQuote.quote;
