@@ -496,10 +496,13 @@ function chooseQuote() {
   const randomQuote = pickFromArray(quotes)
 
   const quote = document.getElementById("quote");
+  if(quote!==null){
   quote.innerText = randomQuote.quote;
-
+  }
   const author = document.getElementById("author");
+  if(author!==null){
   author.innerText = randomQuote.author;
+  }
 }
 
 window.addEventListener("load", chooseQuote);
@@ -510,8 +513,9 @@ button.addEventListener("click", chooseQuote);
 const autoGenerate = document.getElementById("auto-play-toggle");
 let interval = null;
 autoGenerate.addEventListener("change", () => {
+  let changeQuoteInterval=2000
   if (autoGenerate.checked) {
-    interval = setInterval(chooseQuote, 2000);
+    interval = setInterval(chooseQuote, changeQuoteInterval);
   } else {
     clearInterval(interval);
     interval = null;
