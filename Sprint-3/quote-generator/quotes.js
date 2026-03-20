@@ -497,11 +497,11 @@ function chooseQuote() {
 
   const quote = document.getElementById("quote");
   if(quote!==null){
-  quote.innerText = randomQuote.quote;
+  quote.textContent = randomQuote.quote;
   }
   const author = document.getElementById("author");
   if(author!==null){
-  author.innerText = randomQuote.author;
+  author.textContent = randomQuote.author;
   }
 }
 
