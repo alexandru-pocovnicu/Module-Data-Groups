@@ -8,6 +8,6 @@ function sum(elements) {
   }
   return filteredElements.reduce((a, b) => a + b);
 }
-console.log(sum([0]));
+
 
 module.exports = sum;
