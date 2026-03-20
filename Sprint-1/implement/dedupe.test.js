@@ -31,6 +31,7 @@ test("given an array with no duplicates, it returns a copy of the original  arra
   const currentOutput = dedupe(array);
   const targetOutput = [1,"d",6];
   expect(currentOutput).toEqual(targetOutput);
+  expect(currentOutput).not.toBe(array)
 });
 
 // Given an array with strings or numbers
