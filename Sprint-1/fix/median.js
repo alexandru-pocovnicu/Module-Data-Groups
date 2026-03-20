@@ -10,8 +10,7 @@ function calculateMedian(list) {
     return null;
   }
 
-  let listCopy = [...list];
-  let filteredList = listCopy.filter((x) => typeof x === "number");
+  let filteredList = list.filter((x) => typeof x === "number");
   let sortedList = filteredList.sort((a, b) => a - b);
   const middleIndex = Math.floor(sortedList.length / 2);
 
@@ -28,7 +27,5 @@ function calculateMedian(list) {
 
   return median;
 }
-
-
 
 module.exports = calculateMedian;
