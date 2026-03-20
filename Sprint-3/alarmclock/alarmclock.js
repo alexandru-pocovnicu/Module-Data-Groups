@@ -40,7 +40,6 @@ function setup() {
 
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
-    document.body.classList.remove("finish-countdown");
   });
 }
 
