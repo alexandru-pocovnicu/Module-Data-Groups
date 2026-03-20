@@ -15,5 +15,14 @@ h1 {
 }
 
 .finish-countdown {
-background-color: darkblue;
+animation: police 0.5s infinite;
+}
+
+@keyframes police {
+  from{
+    background-color:blue;
+  }
+  to{
+    background-color: red;
+  }
 }
