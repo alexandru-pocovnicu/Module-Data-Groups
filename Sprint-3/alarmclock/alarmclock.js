@@ -13,8 +13,11 @@ function setAlarm() {
     alarmSetEl.value = null;
 
     if (totalSeconds === 0) {
+      document.body.classList.add("finish-countdown")
+      
       playAlarm();
       clearInterval(intervalId);
+      
       return;
     }
     totalSeconds -= 1;
@@ -37,6 +40,7 @@ function setup() {
 
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
+    document.body.classList.remove("finish-countdown");
   });
 }
 
