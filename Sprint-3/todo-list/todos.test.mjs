@@ -135,5 +135,9 @@ describe("deleteCompleted()",()=>{
     const todoList=createMockTodos()
     Todos.deleteCompleted(todoList)
     expect(todoList).toHaveLength(2)
+    expect(todoList).toEqual([
+      { task: "Task 2 description", completed: false },
+      { task: "Task 4 description", completed: false },
+    ]);
   })
 });
