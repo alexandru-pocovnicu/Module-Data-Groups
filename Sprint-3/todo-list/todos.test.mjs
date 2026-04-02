@@ -141,3 +141,16 @@ describe("deleteCompleted()",()=>{
     ]);
   })
 });
+  test("does nothing when there are no completed tasks", () => {
+    const todoList = [
+      { task: "Task 1 description", completed: false },
+      { task: "Task 2 description", completed: false },
+    ];
+
+    Todos.deleteCompleted(todoList);
+
+    expect(todoList).toEqual([
+      { task: "Task 1 description", completed: false },
+      { task: "Task 2 description", completed: false },
+    ]);
+  });
