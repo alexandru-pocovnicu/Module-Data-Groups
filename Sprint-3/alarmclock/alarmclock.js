@@ -2,6 +2,10 @@ function setAlarm() {
   const alarmSetEl = document.getElementById("alarmSet");
   const timeRemainingEl = document.getElementById("timeRemaining");
   let totalSeconds = +alarmSetEl.value;
+  if (totalSeconds === 0) {
+    alarmSetEl.value = null;
+    return;
+  }
   let intervalId;
   function updateCountDown() {
     let seconds = totalSeconds % 60;
@@ -13,11 +17,11 @@ function setAlarm() {
     alarmSetEl.value = null;
 
     if (totalSeconds === 0) {
-      document.body.classList.add("finish-countdown")
-      
+      document.body.classList.add("finish-countdown");
+
       playAlarm();
       clearInterval(intervalId);
-      
+
       return;
     }
     totalSeconds -= 1;
@@ -26,8 +30,6 @@ function setAlarm() {
   updateCountDown();
   intervalId = setInterval(updateCountDown, 1000);
 }
-
-
 
 // DO NOT EDIT BELOW HERE
 
