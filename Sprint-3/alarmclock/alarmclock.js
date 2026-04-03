@@ -1,3 +1,4 @@
+let intervalId;
 function setAlarm() {
   const alarmSetEl = document.getElementById("alarmSet");
   const timeRemainingEl = document.getElementById("timeRemaining");
@@ -6,7 +7,8 @@ function setAlarm() {
     alarmSetEl.value = null;
     return;
   }
-  let intervalId;
+  cleanInitialState();
+
   function updateCountDown() {
     let seconds = totalSeconds % 60;
     let minutes = (totalSeconds - seconds) / 60;
@@ -29,6 +31,14 @@ function setAlarm() {
 
   updateCountDown();
   intervalId = setInterval(updateCountDown, 1000);
+}
+
+function cleanInitialState() {
+  clearInterval(intervalId);
+  document.body.classList.remove("finish-countdown");
+  document.getElementById("timeRemaining").innerHTML = "Time Remaining: 00:00";
+  document.getElementById("alarmSet").value = null;
+  pauseAlarm();
 }
 
 // DO NOT EDIT BELOW HERE
