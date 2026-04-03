@@ -3,7 +3,11 @@ function setAlarm() {
   const alarmSetEl = document.getElementById("alarmSet");
   const timeRemainingEl = document.getElementById("timeRemaining");
   let totalSeconds = +alarmSetEl.value;
-  if (totalSeconds === 0) {
+  if (
+    totalSeconds <= 0 ||
+    isNaN(totalSeconds) ||
+    !Number.isInteger(totalSeconds)
+  ) {
     alarmSetEl.value = null;
     return;
   }
