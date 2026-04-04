@@ -1,7 +1,13 @@
 let intervalId;
 function setAlarm() {
+  const pauseButton = document.getElementById("pause-button");
+  pauseButton.removeAttribute("id");
+  pauseButton.classList.add("unpause-alarm");
+  pauseButton.addEventListener("click", pauseCountDown);
+
   const alarmSetEl = document.getElementById("alarmSet");
   const timeRemainingEl = document.getElementById("timeRemaining");
+
   let totalSeconds = +alarmSetEl.value;
   if (
     totalSeconds <= 0 ||
@@ -22,7 +28,7 @@ function setAlarm() {
     timeRemainingEl.innerHTML = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`;
     alarmSetEl.value = null;
 
-    if (totalSeconds === 0) {
+    if (totalSeconds <= 0) {
       document.body.classList.add("finish-countdown");
 
       playAlarm();
@@ -30,11 +36,16 @@ function setAlarm() {
 
       return;
     }
+    console.log(totalSeconds);
     totalSeconds -= 1;
   }
 
   updateCountDown();
   intervalId = setInterval(updateCountDown, 1000);
+}
+
+function pauseCountDown() {
+  clearInterval(intervalId);
 }
 
 function cleanInitialState() {
