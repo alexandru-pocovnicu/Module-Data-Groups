@@ -15,14 +15,22 @@ h1 {
 }
 
 .finish-countdown {
-animation: police 0.5s infinite;
+  animation: police 0.5s infinite;
 }
 
 @keyframes police {
-  from{
-    background-color:blue;
+  from {
+    background-color: blue;
   }
-  to{
+  to {
     background-color: red;
   }
+}
+
+#pause-button {
+  visibility: hidden;
+}
+
+.unpause-alarm{
+  
 }
