@@ -30,10 +30,7 @@ function setAlarm() {
     updateDisplayedTime(remainingSeconds);
 
     if (totalSeconds <= 0) {
-      document.body.classList.add("finish-countdown");
-
-      playAlarm();
-      clearInterval(intervalId);
+      finishCountDown();
       return;
     }
 
@@ -61,9 +58,7 @@ function pauseCountDown(e) {
       updateDisplayedTime(remainingSeconds);
 
       if (remainingSeconds <= 0) {
-        document.body.classList.add("finish-countdown");
-        playAlarm();
-        clearInterval(intervalId);
+        finishCountDown();
       }
     }, 1000);
   }
@@ -85,6 +80,12 @@ function updateDisplayedTime(totalSeconds) {
   let paddedMinutes = minutes.toString().padStart(2, "0");
   document.getElementById("timeRemaining").innerHTML =
     `Time Remaining: ${paddedMinutes}:${paddedSeconds}`;
+}
+
+function finishCountDown() {
+  document.body.classList.add("finish-countdown");
+  playAlarm();
+  clearInterval(intervalId);
 }
 
 // DO NOT EDIT BELOW HERE
