@@ -44,7 +44,7 @@ function setAlarm() {
 function pauseCountDown(e) {
   if (isPaused === false) {
     clearInterval(intervalId);
-    e.target.textContent = "unpause";
+    e.target.textContent = "Unpause";
     isPaused = true;
   } else {
     e.target.textContent = "Pause";
