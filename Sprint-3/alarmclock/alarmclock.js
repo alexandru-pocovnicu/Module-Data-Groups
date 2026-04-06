@@ -1,42 +1,47 @@
 let intervalId;
+let isPaused;
+let remainingSeconds = 0;
 function setAlarm() {
+  isPaused = false;
   const pauseButton = document.getElementById("pause-button");
-  pauseButton.removeAttribute("id");
-  pauseButton.classList.add("unpause-alarm");
-  pauseButton.addEventListener("click", pauseCountDown);
+  if (pauseButton) {
+    pauseButton.removeAttribute("id");
+    pauseButton.classList.add("unpause-alarm");
+    pauseButton.addEventListener("click", pauseCountDown);
+  }
 
   const alarmSetEl = document.getElementById("alarmSet");
   const timeRemainingEl = document.getElementById("timeRemaining");
-
   let totalSeconds = +alarmSetEl.value;
+  remainingSeconds = totalSeconds;
+
   if (
     totalSeconds <= 0 ||
     isNaN(totalSeconds) ||
     !Number.isInteger(totalSeconds)
   ) {
-    alarmSetEl.value = null;
+    alarmSetEl.value = "";
     return;
   }
   cleanInitialState();
 
   function updateCountDown() {
+    remainingSeconds = totalSeconds;
     let seconds = totalSeconds % 60;
     let minutes = (totalSeconds - seconds) / 60;
 
     let paddedSeconds = seconds.toString().padStart(2, "0");
     let paddedMinutes = minutes.toString().padStart(2, "0");
     timeRemainingEl.innerHTML = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`;
-    alarmSetEl.value = null;
 
     if (totalSeconds <= 0) {
       document.body.classList.add("finish-countdown");
 
       playAlarm();
       clearInterval(intervalId);
-
       return;
     }
-    console.log(totalSeconds);
+
     totalSeconds -= 1;
   }
 
@@ -44,8 +49,34 @@ function setAlarm() {
   intervalId = setInterval(updateCountDown, 1000);
 }
 
-function pauseCountDown() {
-  clearInterval(intervalId);
+function pauseCountDown(e) {
+  if (isPaused === false) {
+    clearInterval(intervalId);
+    e.target.textContent = "unpause";
+    isPaused = true;
+  } else {
+    e.target.textContent = "Pause";
+    isPaused = false;
+    intervalId = setInterval(() => {
+      if (remainingSeconds <= 0) {
+        clearInterval(intervalId);
+        return;
+      }
+      remainingSeconds -= 1;
+      const seconds = remainingSeconds % 60;
+      const minutes = (remainingSeconds - seconds) / 60;
+      const paddedSeconds = seconds.toString().padStart(2, "0");
+      const paddedMinutes = minutes.toString().padStart(2, "0");
+      document.getElementById("timeRemaining").innerHTML =
+        `Time Remaining: ${paddedMinutes}:${paddedSeconds}`;
+
+      if (remainingSeconds <= 0) {
+        document.body.classList.add("finish-countdown");
+        playAlarm();
+        clearInterval(intervalId);
+      }
+    }, 1000);
+  }
 }
 
 function cleanInitialState() {
