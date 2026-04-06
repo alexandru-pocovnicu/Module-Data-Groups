@@ -26,7 +26,6 @@ function setAlarm() {
   cleanInitialState();
 
   function updateCountDown() {
-    remainingSeconds = totalSeconds;
     let seconds = totalSeconds % 60;
     let minutes = (totalSeconds - seconds) / 60;
 
