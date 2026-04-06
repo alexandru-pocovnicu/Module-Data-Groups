@@ -5,7 +5,6 @@ function setAlarm() {
   isPaused = false;
   const pauseButton = document.getElementById("pause-button");
   if (pauseButton) {
-    pauseButton.removeAttribute("id");
     pauseButton.addEventListener("click", pauseCountDown);
   }
 
