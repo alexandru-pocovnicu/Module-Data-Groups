@@ -6,7 +6,6 @@ function setAlarm() {
   const pauseButton = document.getElementById("pause-button");
   if (pauseButton) {
     pauseButton.removeAttribute("id");
-    pauseButton.classList.add("unpause-alarm");
     pauseButton.addEventListener("click", pauseCountDown);
   }
 
