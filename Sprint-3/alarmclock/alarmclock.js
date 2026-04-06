@@ -26,12 +26,8 @@ function setAlarm() {
   cleanInitialState();
 
   function updateCountDown() {
-    let seconds = totalSeconds % 60;
-    let minutes = (totalSeconds - seconds) / 60;
-
-    let paddedSeconds = seconds.toString().padStart(2, "0");
-    let paddedMinutes = minutes.toString().padStart(2, "0");
-    timeRemainingEl.innerHTML = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`;
+    remainingSeconds = totalSeconds;
+    updateDisplayedTime(remainingSeconds);
 
     if (totalSeconds <= 0) {
       document.body.classList.add("finish-countdown");
@@ -62,12 +58,7 @@ function pauseCountDown(e) {
         return;
       }
       remainingSeconds -= 1;
-      const seconds = remainingSeconds % 60;
-      const minutes = (remainingSeconds - seconds) / 60;
-      const paddedSeconds = seconds.toString().padStart(2, "0");
-      const paddedMinutes = minutes.toString().padStart(2, "0");
-      document.getElementById("timeRemaining").innerHTML =
-        `Time Remaining: ${paddedMinutes}:${paddedSeconds}`;
+      updateDisplayedTime(remainingSeconds);
 
       if (remainingSeconds <= 0) {
         document.body.classList.add("finish-countdown");
@@ -84,6 +75,16 @@ function cleanInitialState() {
   document.getElementById("timeRemaining").innerHTML = "Time Remaining: 00:00";
   document.getElementById("alarmSet").value = null;
   pauseAlarm();
+}
+
+function updateDisplayedTime(totalSeconds) {
+  let seconds = totalSeconds % 60;
+  let minutes = (totalSeconds - seconds) / 60;
+
+  let paddedSeconds = seconds.toString().padStart(2, "0");
+  let paddedMinutes = minutes.toString().padStart(2, "0");
+  document.getElementById("timeRemaining").innerHTML =
+    `Time Remaining: ${paddedMinutes}:${paddedSeconds}`;
 }
 
 // DO NOT EDIT BELOW HERE
