@@ -2,7 +2,7 @@ let intervalId;
 let isPaused;
 let remainingSeconds = 0;
 function setAlarm() {
-  isPaused = false;
+  
   const pauseButton = document.getElementById("pause-button");
     pauseButton.textContent = "Pause";
     pauseButton.addEventListener("click", pauseCountDown);
@@ -62,6 +62,7 @@ function pauseCountDown(e) {
 }
 
 function cleanInitialState() {
+  isPaused = false;
   clearInterval(intervalId);
   document.body.classList.remove("finish-countdown");
   updateDisplayedTime(0)
