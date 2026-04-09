@@ -64,7 +64,7 @@ function pauseCountDown(e) {
 function cleanInitialState() {
   clearInterval(intervalId);
   document.body.classList.remove("finish-countdown");
-  updateDisplayedTime(0)//document.getElementById("timeRemaining").innerHTML = "Time Remaining: 00:00";
+  updateDisplayedTime(0)
   document.getElementById("alarmSet").value = null;
   pauseAlarm();
 }
