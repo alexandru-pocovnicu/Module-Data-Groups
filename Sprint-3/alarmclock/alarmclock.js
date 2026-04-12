@@ -11,7 +11,6 @@ function setAlarm() {
   const alarmSetEl = document.getElementById("alarmSet");
   const timeRemainingEl = document.getElementById("timeRemaining");
   let totalSeconds = +alarmSetEl.value;
-  remainingSeconds = totalSeconds;
 
   if (
     totalSeconds <= 0 ||
