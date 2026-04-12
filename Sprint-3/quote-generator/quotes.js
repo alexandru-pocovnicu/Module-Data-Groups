@@ -516,8 +516,8 @@ autoGenerate.addEventListener("change", () => {
   let changeQuoteInterval = 2000;
   if (autoGenerate.checked) {
     interval = setInterval(chooseQuote, changeQuoteInterval);
-  } else {
+   } else {
     clearInterval(interval);
     interval = null;
   }
-});
+ });
