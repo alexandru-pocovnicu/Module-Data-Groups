@@ -493,15 +493,15 @@ const quotes = [
 // call pickFromArray with the quotes array to check you get a random quote
 
 function chooseQuote() {
-  const randomQuote = pickFromArray(quotes)
+  const randomQuote = pickFromArray(quotes);
 
   const quote = document.getElementById("quote");
-  if(quote!==null){
-  quote.textContent = randomQuote.quote;
+  if (quote !== null) {
+    quote.textContent = randomQuote.quote;
   }
   const author = document.getElementById("author");
-  if(author!==null){
-  author.textContent = randomQuote.author;
+  if (author !== null) {
+    author.textContent = randomQuote.author;
   }
 }
 
@@ -513,7 +513,7 @@ button.addEventListener("click", chooseQuote);
 const autoGenerate = document.getElementById("auto-play-toggle");
 let interval = null;
 autoGenerate.addEventListener("change", () => {
-  let changeQuoteInterval=2000
+  let changeQuoteInterval = 2000;
   if (autoGenerate.checked) {
     interval = setInterval(chooseQuote, changeQuoteInterval);
   } else {
