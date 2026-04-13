@@ -2,9 +2,7 @@ let intervalId;
 let isPaused;
 let remainingSeconds = 0;
 function setAlarm() {
-
   const alarmSetEl = document.getElementById("alarmSet");
-  const timeRemainingEl = document.getElementById("timeRemaining");
   let totalSeconds = +alarmSetEl.value;
 
   if (
