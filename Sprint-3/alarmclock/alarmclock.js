@@ -2,9 +2,6 @@ let intervalId;
 let isPaused;
 let remainingSeconds = 0;
 function setAlarm() {
-  // const pauseButton = document.getElementById("pause-button");
-  // pauseButton.textContent = "Pause";
-  // pauseButton.addEventListener("click", pauseCountDown);
 
   const alarmSetEl = document.getElementById("alarmSet");
   const timeRemainingEl = document.getElementById("timeRemaining");
