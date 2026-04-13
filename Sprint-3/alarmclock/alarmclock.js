@@ -66,7 +66,7 @@ function cleanInitialState() {
   clearInterval(intervalId);
   document.body.classList.remove("finish-countdown");
   updateDisplayedTime(0);
-  document.getElementById("alarmSet").value = null;
+  document.getElementById("alarmSet").value = "";
   pauseAlarm();
 }
 
