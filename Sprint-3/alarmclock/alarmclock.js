@@ -2,11 +2,9 @@ let intervalId;
 let isPaused;
 let remainingSeconds = 0;
 function setAlarm() {
-  
-  const pauseButton = document.getElementById("pause-button");
-    pauseButton.textContent = "Pause";
-    pauseButton.removeEventListener("click",pauseCountDown)
-    pauseButton.addEventListener("click", pauseCountDown);
+  // const pauseButton = document.getElementById("pause-button");
+  // pauseButton.textContent = "Pause";
+  // pauseButton.addEventListener("click", pauseCountDown);
 
   const alarmSetEl = document.getElementById("alarmSet");
   const timeRemainingEl = document.getElementById("timeRemaining");
@@ -63,9 +61,11 @@ function pauseCountDown(e) {
 
 function cleanInitialState() {
   isPaused = false;
+  const pauseButton = document.getElementById("pause-button");
+  pauseButton.textContent = "Pause";
   clearInterval(intervalId);
   document.body.classList.remove("finish-countdown");
-  updateDisplayedTime(0)
+  updateDisplayedTime(0);
   document.getElementById("alarmSet").value = null;
   pauseAlarm();
 }
@@ -85,6 +85,11 @@ function finishCountDown() {
   playAlarm();
   clearInterval(intervalId);
 }
+
+window.addEventListener("load", function () {
+  const pauseButton = document.getElementById("pause-button");
+  pauseButton.addEventListener("click", pauseCountDown);
+});
 
 // DO NOT EDIT BELOW HERE
 
