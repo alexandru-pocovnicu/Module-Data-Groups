@@ -75,7 +75,12 @@ function finishCountDown() {
 
 window.addEventListener("load", function () {
   const pauseButton = document.getElementById("pause-button");
+  const stopButton = document.getElementById("stop");
   pauseButton.addEventListener("click", pauseCountDown);
+  stopButton.addEventListener("click", () => {
+    remainingSeconds = 0;
+    cleanInitialState();
+  });
 });
 
 // DO NOT EDIT BELOW HERE
