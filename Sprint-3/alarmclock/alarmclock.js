@@ -1,9 +1,21 @@
 let intervalId;
 let isPaused;
 let remainingSeconds = 0;
+
+function updateCountDown() {
+  updateDisplayedTime(remainingSeconds);
+
+  if (remainingSeconds <= 0) {
+    finishCountDown();
+    return;
+  }
+
+  remainingSeconds -= 1;
+}
+
 function setAlarm() {
   const alarmSetEl = document.getElementById("alarmSet");
-  let totalSeconds = +alarmSetEl.value;
+  const totalSeconds = +alarmSetEl.value;
 
   if (
     totalSeconds <= 0 ||
@@ -15,17 +27,7 @@ function setAlarm() {
   }
   cleanInitialState();
 
-  function updateCountDown() {
-    remainingSeconds = totalSeconds;
-    updateDisplayedTime(remainingSeconds);
-
-    if (totalSeconds <= 0) {
-      finishCountDown();
-      return;
-    }
-
-    totalSeconds -= 1;
-  }
+  remainingSeconds = totalSeconds;
 
   updateCountDown();
   intervalId = setInterval(updateCountDown, 1000);
@@ -39,18 +41,8 @@ function pauseCountDown(e) {
   } else {
     e.target.textContent = "Pause";
     isPaused = false;
-    intervalId = setInterval(() => {
-      if (remainingSeconds <= 0) {
-        clearInterval(intervalId);
-        return;
-      }
-      remainingSeconds -= 1;
-      updateDisplayedTime(remainingSeconds);
-
-      if (remainingSeconds <= 0) {
-        finishCountDown();
-      }
-    }, 1000);
+    updateCountDown();
+    intervalId = setInterval(updateCountDown, 1000);
   }
 }
 
