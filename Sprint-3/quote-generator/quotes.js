@@ -518,6 +518,6 @@ autoGenerate.addEventListener("change", () => {
     interval = setInterval(chooseQuote, changeQuoteInterval);
    } else {
     clearInterval(interval);
-    interval = null;
+    
   }
  });
